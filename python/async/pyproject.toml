@@ -1,0 +1,30 @@
+[project]
+name = "async"
+version = "0.1.0"
+description = "Exercises with Python's asynchronous structures"
+authors = [
+    { name = "DorskFR", email = "dorsk.dev@gmail.com" }
+]
+dependencies = [
+    "asyncache>=0.3.1",
+    "requests>=2.32.3",
+    "yarl>=1.9.4",
+    "tenacity>=8.5.0",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/async"]
