@@ -32,9 +32,19 @@ packages = ["src/async"]
 
 [tool.rye.scripts]
 start = { chain = [
+    "python -m async.exception_handling",
+    "python -m async.gather_cache",
     "python -m async.hash_key",
     "python -m async.hashable_cache",
+    "python -m async.high_concurrency",
     "python -m async.lock_cache",
     "python -m async.log_cache",
+    "python -m async.multi_locks",
     "python -m async.nursery",
+    "python -m async.sequence",
+    "python -m async.signal_generator",
+    "python -m async.signal_shutdown",
+    "python -m async.sqlalchemy_session",
+    "python -m async.task_callback",
+    "python -m async.task_group",
 ] }
