@@ -11,7 +11,9 @@ class CustomError(Exception):
     """Custom error"""
 
 
-async def sleep_talking(msg: str, number: int | None = None, is_true: bool = False) -> None:
+async def sleep_talking(
+    msg: str, number: int | None = None, is_true: bool = False
+) -> None:
     await asyncio.sleep(0.1)
     print(msg, number, is_true)
 
@@ -36,7 +38,9 @@ async def raise_another_error() -> None:
 
 
 class Nursery:
-    def __init__(self, silenced_errors: Exception | tuple[Any, ...] | None = None) -> None:
+    def __init__(
+        self, silenced_errors: Exception | tuple[Any, ...] | None = None
+    ) -> None:
         super().__init__()
         self.tasks: set[Task[None]] = set()
         self.silenced_errors: Exception | tuple[Any, ...] = silenced_errors or tuple()

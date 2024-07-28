@@ -2,9 +2,7 @@
 name = "async"
 version = "0.1.0"
 description = "Exercises with Python's asynchronous structures"
-authors = [
-    { name = "DorskFR", email = "dorsk.dev@gmail.com" }
-]
+authors = [{ name = "DorskFR", email = "dorsk.dev@gmail.com" }]
 dependencies = [
     "asyncache>=0.3.1",
     "requests>=2.32.3",
@@ -21,10 +19,22 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "mypy>=1.11.0",
+    "ruff>=0.5.5",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/async"]
+
+[tool.rye.scripts]
+start = { chain = [
+    "python -m async.hash_key",
+    "python -m async.hashable_cache",
+    "python -m async.lock_cache",
+    "python -m async.log_cache",
+    "python -m async.nursery",
+] }
