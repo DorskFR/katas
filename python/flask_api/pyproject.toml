@@ -1,0 +1,36 @@
+[project]
+name = "flask-api"
+version = "0.1.0"
+description = "Simple REST API using flask"
+authors = [
+    { name = "DorskFR", email = "dorsk.dev@gmail.com" }
+]
+dependencies = [
+    "sqlalchemy>=2.0.31",
+    "flask>=3.0.3",
+    "flask-sqlalchemy>=3.1.1",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pytest>=8.3.2",
+    "mypy>=1.11.0",
+    "ruff>=0.5.5",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/flask_api"]
+
+[tool.rye.scripts]
+start = { cmd = "flask --app src/flask_api/__main__  run --debug"}
