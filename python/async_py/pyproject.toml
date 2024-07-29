@@ -1,0 +1,49 @@
+[project]
+name = "async_py"
+version = "0.1.0"
+description = "Exercises with Python's asynchronous structures"
+authors = [{ name = "DorskFR", email = "dorsk.dev@gmail.com" }]
+dependencies = [
+    "asyncache>=0.3.1",
+    "requests>=2.32.3",
+    "yarl>=1.9.4",
+    "tenacity>=8.5.0",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "mypy>=1.11.0",
+    "ruff>=0.5.5",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/async_py"]
+
+[tool.rye.scripts]
+start = { chain = [
+    "python -m async_py.exception_handling",
+    "python -m async_py.gather_cache",
+    "python -m async_py.hash_key",
+    "python -m async_py.hashable_cache",
+    "python -m async_py.high_concurrency",
+    "python -m async_py.lock_cache",
+    "python -m async_py.log_cache",
+    "python -m async_py.multi_locks",
+    "python -m async_py.nursery",
+    "python -m async_py.sequence",
+    "python -m async_py.signal_generator",
+    "python -m async_py.signal_shutdown",
+    "python -m async_py.task_callback",
+    "python -m async_py.task_group",
+] }
