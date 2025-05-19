@@ -42,6 +42,7 @@ start = { chain = [
     "python -m async_py.multi_locks",
     "python -m async_py.nursery",
     "python -m async_py.sequence",
+    "python -m async_py.sequence_failure",
     "python -m async_py.signal_generator",
     "python -m async_py.signal_shutdown",
     "python -m async_py.task_callback",
